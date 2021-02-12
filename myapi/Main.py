@@ -29,8 +29,9 @@ def no_lat_lon_json(lat, lon):
     final_output['nightfall'] = nightfall
     test = final_output.copy()
     for opinion in test.values():
-        for time, datetime in opinion.items():
-            opinion[time] = datetime.strftime("%m/%d/%Y, %H:%M:%S")
+        if opinion == 'magen' or opinion == 'vilna':
+            for time, datetime in opinion.items():
+                opinion[time] = datetime.strftime("%m/%d/%Y, %H:%M:%S")
     return final_output
 
 
