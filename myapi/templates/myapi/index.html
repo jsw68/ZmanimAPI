@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>ZmanimAPI</title>
+<!--
+
+Lava Landing Page
+
+https://templatemo.com/tm-540-lava-landing-page
+
+-->
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="{% static "myapi/assets/css/bootstrap.min.css" %}">
+
+    <link rel="stylesheet" type="text/css" href="{%  static "myapi/assets/css/font-awesome.css" %}">
+
+    <link rel="stylesheet" href="{% static "myapi/assets/css/templatemo-lava.css" %}">
+
+    <link rel="stylesheet" href="{% static "myapi/assets/css/owl-carousel.css" %}">
+
+</head>
+
+<body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="index.html" class="logo">
+                            ZmanimAPI
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="#welcome" class="menu-item">Home</a></li>
+                            <li class="scroll-to-section"><a href="#about" class="menu-item">About</a></li>
+
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+
+    <!-- ***** Welcome Area Start ***** -->
+    <div class="welcome-area" id="welcome">
+
+        <!-- ***** Header Text Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12"
+                        data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                        <h1>Welcome to the Zmanim<em>API</em>!</h1>
+                        <p>This is the homepage for the Zmanim API. The Zmanim API is an API that allows anyone anywhere to access
+                        Zmanim for any location in the world.</p>
+                        <a href="#about" class="main-button-slider">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Header Text End ***** -->
+    </div>
+    <!-- ***** Welcome Area End ***** -->
+
+    <!-- ***** Features Big Item Start ***** -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
+                    data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                    <div class="features-item">
+                        <div class="features-icon">
+                            <h2>01</h2>
+                            <img src="{% static "myapi/assets/images/features-icon-1.png" %}" alt="">
+                            <h4>URL based</h4>
+                            <p>In order to get the Zmanim for any location incorporate your own latitude and logitude
+                                coordinates into the URL/</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
+                    data-scroll-reveal="enter bottom move 30px over 0.6s after 0.4s">
+                    <div class="features-item">
+                        <div class="features-icon">
+                            <h2>02</h2>
+                            <img src="{% static "myapi/assets/images/features-icon-2.png" %}" alt="">
+                            <h4>How to use</h4>
+                            <p>After the base URL, put a slash, and then your latitude coordinate, and then another slash followed by your longitude!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
+                    data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                    <div class="features-item">
+                        <div class="features-icon">
+                            <h2>03</h2>
+                            <img src="{% static "myapi/assets/images/features-icon-3.png" %}" alt="">
+                            <h4>Intuitive Design</h4>
+                            <p>The site will then show you all the proper Zmanim, converted into the time zone of the coordinates!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Features Big Item End ***** -->
+
+    <div class="left-image-decor"></div>
+
+    <div class="right-image-decor"></div>
+    <!-- ***** Footer Start ***** -->
+    <footer id="contact-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="sub-footer">
+                        <p>Copyright &copy; 2020 Lava Landing Page
+
+                        | Designed by <a rel="nofollow" href="https://templatemo.com">TemplateMo</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="{% static "myapi/assets/js/jquery-2.1.0.min.js" %}"></script>
+
+    <!-- Bootstrap -->
+    <script src="{% static "myapi/assets/js/popper.js" %}"></script>
+    <script src="{% static "myapi/assets/js/bootstrap.min.js" %}"></script>
+
+    <!-- Plugins -->
+    <script src="{% static "myapi/assets/js/owl-carousel.js" %}"></script>
+    <script src="{% static "myapi/assets/js/scrollreveal.min.js" %}"></script>
+    <script src="{% static "myapi/assets/js/waypoints.min.js" %}"></script>
+    <script src="{% static "myapi/assets/js/jquery.counterup.min.js" %}"></script>
+    <script src="{% static "myapi/assets/js/imgfix.min.js" %}"></script>
+
+    <!-- Global Init -->
+    <script src="{% static "myapi/assets/js/custom.js" %}"></script>
+
+</body>
+</html>
