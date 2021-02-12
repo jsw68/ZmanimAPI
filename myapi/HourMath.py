@@ -1,12 +1,20 @@
 import datetime
 import dateutil.parser
+import timezonefinder
+import pytz
+from tzwhere import tzwhere
 
 
-def get_hours(sunrise, sunset):
+def get_hours(sunrise, sunset, lat, lon):
     sunrise = dateutil.parser.parse(sunrise)
     sunset = dateutil.parser.parse(sunset)
-    sunrise = sunrise.replace(tzinfo=datetime.timezone.utc).astimezone(tz=None)
-    sunset = sunset.replace(tzinfo=datetime.timezone.utc).astimezone(tz=None)
+    where_obj = tzwhere.tzwhere()
+    tz = where_obj.tzNameAt(lat, lon)
+    print(tz)
+    tz_real = pytz.timezone(tz)
+
+    sunrise = sunrise.replace(tzinfo=datetime.timezone.utc).astimezone(tz=tz_real)
+    sunset = sunset.replace(tzinfo=datetime.timezone.utc).astimezone(tz=tz_real)
     min_72 = datetime.timedelta(minutes=72)
     vilna_day_len = sunset - sunrise
     daybreak = sunrise - min_72

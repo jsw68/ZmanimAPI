@@ -1,4 +1,3 @@
-from rest_framework import viewsets
 from django.http import JsonResponse
 from .Main import no_lat_lon_json
 # Create your views here.
