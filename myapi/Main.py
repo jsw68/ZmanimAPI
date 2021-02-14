@@ -19,7 +19,7 @@ def no_lat_lon_json(lat, lon):
     print(lat, lon)
     sunrise_gmt, sunset_gmt = get_sunrise_sunset(lat, lon)
     magen_hour_len, vilna_hour_len, sunrise, sunset, daybreak, nightfall = get_hours(sunrise_gmt, sunset_gmt, lat, lon)
-    magen_output = calcs(magen_hour_len, sunrise, sunset)
+    magen_output = calcs(magen_hour_len, daybreak, nightfall)
     vilna_output = calcs(vilna_hour_len, sunrise, sunset)
     final_output['daybreak'] = daybreak
     final_output['sunrise'] = sunrise
