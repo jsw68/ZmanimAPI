@@ -1,13 +1,16 @@
 import requests
 import json
+import pgeocode
 
 
-def get_lat_lon():
+def get_lat_lon(code):
+
     url = "https://us1.locationiq.com/v1/search.php"
 
     data = {
         'key': 'pk.65b9351b2e107133b7d3ea99a3f181d7',
-        'q': 'Westminster, London SW1A 1AA, United Kingdom',
+        'q': code,
+        'countrycode': 'us',
         'format': 'json'
     }
 
@@ -17,5 +20,4 @@ def get_lat_lon():
     lat = res_dict['lat']
     lon = res_dict['lon']
     return lat, lon
-
 

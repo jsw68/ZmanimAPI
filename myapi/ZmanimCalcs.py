@@ -19,6 +19,7 @@ def calcs(hour, sunrise, sunset):
     quarter_hour = hour/4
     plag_haminha = sunset - hour - quarter_hour
     output["plag_haminha"] = plag_haminha
-    # time_string = sof_zman_tefilah.strftime("%a %d %B %Y %H %p %M %S %F %Z")
+    # time_string = plag_haminha.strftime("%a %d %B %Y %H %p %M %S %F %Z")
+    # print(time_string, hour, sunset, quarter_hour)
     return output
 

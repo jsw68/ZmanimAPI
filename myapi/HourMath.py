@@ -1,6 +1,5 @@
 import datetime
 import dateutil.parser
-import timezonefinder
 import pytz
 from tzwhere import tzwhere
 
@@ -11,7 +10,6 @@ def get_hours(sunrise, sunset, lat, lon):
     where_obj = tzwhere.tzwhere()
     tz = where_obj.tzNameAt(lat, lon)
     tz_real = pytz.timezone(tz)
-
     sunrise = sunrise.replace(tzinfo=datetime.timezone.utc).astimezone(tz=tz_real)
     sunset = sunset.replace(tzinfo=datetime.timezone.utc).astimezone(tz=tz_real)
     min_72 = datetime.timedelta(minutes=72)

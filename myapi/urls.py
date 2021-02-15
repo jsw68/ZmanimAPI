@@ -23,6 +23,17 @@ class DateConverter:
         return value
 
 
+class ZipConverter:
+    regex = r'\d{5}'
+
+    def to_python(self, value):
+        return int(value)
+
+    def to_url(self, value):
+        return value
+
+
+register_converter(ZipConverter, 'zip')
 register_converter(FloatConverter, 'float')
 register_converter(DateConverter, 'date')
 # Wire up our API using automatic URL routing.
@@ -30,7 +41,8 @@ register_converter(DateConverter, 'date')
 urlpatterns = [
     path('', views.homepage, name='homepage'),
     path('<float:lat>/<float:lon>/', views.Zmanim_View, name='response'),
-    path('<float:lat>/<float:lon>/<date:date>/', views.date_zmanim, name="date_response")
+    path('<float:lat>/<float:lon>/<date:date>/', views.date_zmanim, name="date_response"),
+    path('us/<zip:code>/', views.zmanim_with_code, name="zmanim_zip")
     # path('<int:year>/<int:month>/<int:day>', include(router.urls)),
     # path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ] + staticfiles_urlpatterns()

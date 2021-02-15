@@ -5,7 +5,7 @@ from .ZmanimCalcs import calcs
 
 
 def main():
-    lat, lon = get_lat_lon()
+    lat, lon = get_lat_lon(90035)
     sunrise_gmt, sunset_gmt = get_sunrise_sunset(lat, lon)
     magen_hour_len, vilna_hour_len, sunrise, sunset, daybreak, nightfall = get_hours(sunrise_gmt, sunset_gmt)
     calcs(vilna_hour_len, sunrise, sunset)

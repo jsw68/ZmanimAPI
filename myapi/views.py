@@ -1,6 +1,7 @@
 from django.http import JsonResponse
 from .Main import no_lat_lon_json
 from django.shortcuts import render
+from .latlonzip import get_lat_lon_zip
 # Create your views here.
 
 
@@ -19,4 +20,10 @@ def homepage(request):
 
 def date_zmanim(request, date, lat, lon):
     zmanim_dict = no_lat_lon_json(lat, lon, date=date)
+    return JsonResponse(zmanim_dict, json_dumps_params={'indent': 2})
+
+
+def zmanim_with_code(request, code):
+    lat, lon = get_lat_lon_zip(code)
+    zmanim_dict = no_lat_lon_json(lat, lon)
     return JsonResponse(zmanim_dict, json_dumps_params={'indent': 2})
