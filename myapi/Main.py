@@ -6,18 +6,14 @@ from .ZmanimCalcs import calcs
 
 def main():
     lat, lon = get_lat_lon()
-    print(lat, lon)
     sunrise_gmt, sunset_gmt = get_sunrise_sunset(lat, lon)
     magen_hour_len, vilna_hour_len, sunrise, sunset, daybreak, nightfall = get_hours(sunrise_gmt, sunset_gmt)
-    print(magen_hour_len, vilna_hour_len)
-    print(calcs(magen_hour_len, sunrise, sunset))
     calcs(vilna_hour_len, sunrise, sunset)
 
 
-def no_lat_lon_json(lat, lon):
+def no_lat_lon_json(lat, lon, date=None):
     final_output = {}
-    print(lat, lon)
-    sunrise_gmt, sunset_gmt = get_sunrise_sunset(lat, lon)
+    sunrise_gmt, sunset_gmt = get_sunrise_sunset(lat, lon, date=date)
     magen_hour_len, vilna_hour_len, sunrise, sunset, daybreak, nightfall = get_hours(sunrise_gmt, sunset_gmt, lat, lon)
     magen_output = calcs(magen_hour_len, daybreak, nightfall)
     vilna_output = calcs(vilna_hour_len, sunrise, sunset)
@@ -32,7 +28,6 @@ def no_lat_lon_json(lat, lon):
         if opinion == 'magen' or opinion == 'vilna':
             for time, datetime in times.items():
                 times[time] = datetime.strftime("%m/%d/%Y, %H:%M:%S")
-                print(datetime.strftime("%m/%d/%Y, %H:%M:%S"), 'this is a time')
         else:
             final_output[opinion] = times.strftime("%m/%d/%Y, %H:%M:%S")
     return final_output

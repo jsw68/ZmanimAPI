@@ -14,7 +14,6 @@ def get_sunrise_sunset(lat, lon, date=None):
         'formatted': 0
     }
     response = requests.get(url, params=data)
-    print(response.url)
     response.raise_for_status()
     res_dict = json.loads(response.text)
     results = res_dict['results']

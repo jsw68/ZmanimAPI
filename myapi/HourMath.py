@@ -10,7 +10,6 @@ def get_hours(sunrise, sunset, lat, lon):
     sunset = dateutil.parser.parse(sunset)
     where_obj = tzwhere.tzwhere()
     tz = where_obj.tzNameAt(lat, lon)
-    print(tz)
     tz_real = pytz.timezone(tz)
 
     sunrise = sunrise.replace(tzinfo=datetime.timezone.utc).astimezone(tz=tz_real)
