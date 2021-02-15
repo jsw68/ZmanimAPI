@@ -27,3 +27,9 @@ def zmanim_with_code(request, code):
     lat, lon = get_lat_lon_zip(code)
     zmanim_dict = no_lat_lon_json(lat, lon)
     return JsonResponse(zmanim_dict, json_dumps_params={'indent': 2})
+
+
+def date_zmanim_with_code(request, code, date):
+    lat, lon = get_lat_lon_zip(code)
+    zmanim_dict = no_lat_lon_json(lat, lon, date=date)
+    return JsonResponse(zmanim_dict, json_dumps_params={'indent': 2})

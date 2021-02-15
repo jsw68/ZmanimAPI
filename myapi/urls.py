@@ -42,7 +42,8 @@ urlpatterns = [
     path('', views.homepage, name='homepage'),
     path('<float:lat>/<float:lon>/', views.Zmanim_View, name='response'),
     path('<float:lat>/<float:lon>/<date:date>/', views.date_zmanim, name="date_response"),
-    path('us/<zip:code>/', views.zmanim_with_code, name="zmanim_zip")
+    path('us/<zip:code>/', views.zmanim_with_code, name="zmanim_zip"),
+    path('us/<zip:code>/<date:date>/', views.date_zmanim_with_code, name="zmanim_zip_date")
     # path('<int:year>/<int:month>/<int:day>', include(router.urls)),
     # path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ] + staticfiles_urlpatterns()
