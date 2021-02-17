@@ -33,3 +33,52 @@ def date_zmanim_with_code(request, code, date):
     lat, lon = get_lat_lon_zip(code)
     zmanim_dict = no_lat_lon_json(lat, lon, date=date)
     return JsonResponse(zmanim_dict, json_dumps_params={'indent': 2})
+
+
+def display_times(request, zmanim_dict):
+    magen_dict = zmanim_dict['magen']
+    vilna_dict = zmanim_dict['vilna']
+    return render(request, 'myapi/test.html', {
+        'daybreak': zmanim_dict['daybreak'],
+        'sunrise': zmanim_dict['sunrise'],
+        'magen_sof_zman_kriyat_shema': magen_dict['sof_zman_kriyat_shema'],
+        'magen_sof_zman_tefillah': magen_dict['sof_zman_tefilah'],
+        'hazot': magen_dict['hazot'],
+        'magen_minha_gedola': magen_dict['minha_gedola'],
+        'magen_minha_ketana': magen_dict['minha_ketana'],
+        'magen_plag_minha': magen_dict['plag_haminha'],
+        'vilna_sof_zman_kriyat_shema': vilna_dict['sof_zman_kriyat_shema'],
+        'vilna_sof_zman_tefillah': vilna_dict['sof_zman_tefilah'],
+        'hazot': vilna_dict['hazot'],
+        'vilna_minha_gedola': vilna_dict['minha_gedola'],
+        'vilna_minha_ketana': vilna_dict['minha_ketana'],
+        'vilna_plag_minha': vilna_dict['plag_haminha'],
+        'sunset': zmanim_dict['sunset'],
+        'nightfall': zmanim_dict['nightfall']
+    })
+
+
+def date_zmanim_fancy(request, date, lat, lon):
+    zmanim_dict = no_lat_lon_json(lat, lon, date=date)
+    return display_times(request, zmanim_dict)
+
+
+def zmanim_with_code_fancy(request, code):
+    lat, lon = get_lat_lon_zip(code)
+    zmanim_dict = no_lat_lon_json(lat, lon)
+    return display_times(request, zmanim_dict)
+
+
+def date_zmanim_with_code_fancy(request, code, date):
+    lat, lon = get_lat_lon_zip(code)
+    zmanim_dict = no_lat_lon_json(lat, lon, date=date)
+    return display_times(request, zmanim_dict)
+
+
+def Zmanim_View_fancy(request, lat, lon):
+    zmanim_dict = no_lat_lon_json(lat, lon)
+    # zmanim_json = json.loads(str(zmanim_dict))
+    # json_response = json.dumps(zmanim_dict, indent=2)
+    # response = json.loads(json_response)
+
+    return display_times(request, zmanim_dict)

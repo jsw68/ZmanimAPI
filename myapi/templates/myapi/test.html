@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
 <head>
+    <link rel="stylesheet" href="{% static "myapi/response.css" %}">
     <meta charset="UTF-8">
-    <title>Response</title>
+    <title>Zmanim</title>
 </head>
-<body>
-<ul style="list-style-type: none;">
-    <li>Daybreak: {{ daybreak }}</li>
-    <li>Sunrise: {{ sunrise }}</li>
-    <li>
-        <ul>
-            <li>
-                <strong>Magen Times:</strong>
-            </li>
-            <li>
+<main>
+    <h3>General Times:</h3>
+    <ol class="gradient-list" id="top">
+        <li id="top-item">Daybreak: {{ daybreak }}</li>
+        <li id="top-item">Sunrise: {{ sunrise }}</li>
+        <li id="top-item">Sunset: {{ sunset }}</li>
+        <li id="top-item">Nightfall: {{ nightfall }}</li>
+    </ol>
+    <h3 id="left-title">Magen Avraham:</h3>
+    <ol class="gradient-list" id="left">
+        <li>
                 Sof Zman Kriyat Shema: {{ magen_sof_zman_kriyat_shema }}
             </li>
             <li>
@@ -31,14 +34,10 @@
             <li>
                 Plag Minha: {{ magen_plag_minha }}
             </li>
-        </ul>
-    </li>
+    </ol>
+    <h3 id="right-title">Vilna Times:</h3>
+    <ol class="gradient-list" id="right">
         <li>
-        <ul>
-            <li>
-                <strong>Vilna Times:</strong>
-            </li>
-            <li>
                 Sof Zman Kriyat Shema: {{ vilna_sof_zman_kriyat_shema }}
             </li>
             <li>
@@ -56,15 +55,6 @@
             <li>
                 Plag Minha: {{ vilna_plag_minha }}
             </li>
-        </ul>
-    </li>
-    <li>
-        Sunset: {{ sunset }}
-    </li>
-    <li>
-        Nightfall: {{ nightfall }}
-    </li>
-
-</ul>
-</body>
+    </ol>
+</main>
 </html>

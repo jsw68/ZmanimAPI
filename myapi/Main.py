@@ -4,13 +4,6 @@ from .HourMath import get_hours
 from .ZmanimCalcs import calcs
 
 
-def main():
-    lat, lon = get_lat_lon(90035)
-    sunrise_gmt, sunset_gmt = get_sunrise_sunset(lat, lon)
-    magen_hour_len, vilna_hour_len, sunrise, sunset, daybreak, nightfall = get_hours(sunrise_gmt, sunset_gmt)
-    calcs(vilna_hour_len, sunrise, sunset)
-
-
 def no_lat_lon_json(lat, lon, date=None):
     final_output = {}
     sunrise_gmt, sunset_gmt = get_sunrise_sunset(lat, lon, date=date)
@@ -27,9 +20,9 @@ def no_lat_lon_json(lat, lon, date=None):
     for opinion, times in test.items():
         if opinion == 'magen' or opinion == 'vilna':
             for time, datetime in times.items():
-                times[time] = datetime.strftime("%m/%d/%Y, %H:%M:%S")
+                times[time] = datetime.strftime("%m/%d/%Y, %I:%M:%S %p")
         else:
-            final_output[opinion] = times.strftime("%m/%d/%Y, %H:%M:%S")
+            final_output[opinion] = times.strftime("%m/%d/%Y, %I:%M:%S %p")
     return final_output
 
 
