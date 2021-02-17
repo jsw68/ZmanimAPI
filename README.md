@@ -3,12 +3,9 @@ An API to get Zmanim for any Longitude and Latitude
 
 ## Documentation and usage
 
-The base url for all of the following will be represnted as: URL. 
-There is no up-to-date URL as of now. 
+All API requests start at the base url: http://jsw68.pythonanywhere.com/api/. For shortening purposes, this will be referred to as URL. 
 
 #### API Documentation
-
-All API requests start at the base url: URL/api/
 
 There are four kinds of requests that can be added to that Base URL:
 1. URL/api/lat/lon - This gives the Zmanim for the place with the latitude lat and the longitude lon. 
@@ -17,6 +14,7 @@ There are four kinds of requests that can be added to that Base URL:
 4. URL/api/us/zip_code/date - Same as number 3 except with an optional date string at the end in the form YYY-MM-DD.
 
 Note: Right now, only US zip codes are supported. 
+All times are given in the local time for the area inputted. 
 
 #### Website Documentation
 
@@ -33,7 +31,6 @@ Here they are in the website format:
 1. Search bar
 2. Support for getting Zmanim from a city name, specifically helps for places outside of the US
 3. Nicer errors, less errors
-4. Update the PythonAnywhere site
 
 #### Contact
 To contact the author: 2022.j.wainberg@shalhevet.org
