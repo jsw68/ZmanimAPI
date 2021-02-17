@@ -3,7 +3,7 @@ An API to get Zmanim for any Longitude and Latitude
 
 ## Documentation and usage
 
-All API requests start at the base url: http://jsw68.pythonanywhere.com/api/. For shortening purposes, this will be referred to as URL. 
+All API requests start at the base url: http://jsw68.pythonanywhere.com/. For shortening purposes, this will be referred to as URL. 
 
 #### API Documentation
 
