@@ -13,7 +13,7 @@ def Zmanim_View(request, lat, lon):
 
 
 def homepage(request):
-    return render(request, 'myapi/search.html')
+    return render(request, 'myapi/index.html')
 
 
 def date_zmanim(request, date, lat, lon):
