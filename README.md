@@ -27,9 +27,13 @@ Here they are in the website format:
 3. URL/us/zip_code - This gives the Zmanim for the area with the zip code of zip_code. 
 4. URL/us/zip_code/date - Same as number 3 except with an optional date string at the end in the form YYY-MM-DD.
 
+If you want to search in the web browser, use URL/search. 
+There is an option for search by city name or by zip code (us only). There is also a date option. 
+
 #### ToDo
 1. Add line by line comments for the project
-1. Nicer errors, less errors
+2. Add API view and regular view for cities outside of the search function. 
+3. Nicer errors, less errors
 
 #### Contact
 To contact the author: 2022.j.wainberg@shalhevet.org
