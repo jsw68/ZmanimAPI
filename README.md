@@ -28,9 +28,8 @@ Here they are in the website format:
 4. URL/us/zip_code/date - Same as number 3 except with an optional date string at the end in the form YYY-MM-DD.
 
 #### ToDo
-1. Search bar
-2. Support for getting Zmanim from a city name, specifically helps for places outside of the US
-3. Nicer errors, less errors
+1. Add line by line comments for the project
+1. Nicer errors, less errors
 
 #### Contact
 To contact the author: 2022.j.wainberg@shalhevet.org
