@@ -1,8 +1,9 @@
 from django.http import JsonResponse, HttpResponseRedirect
 from .Main import no_lat_lon_json
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 from .latlonzip import get_lat_lon_zip
 from geopy.geocoders import Nominatim
+import datetime
 
 # Create your views here.
 
@@ -80,10 +81,14 @@ def Zmanim_View_fancy(request, lat, lon):
 
 def search(request):
     if request.method == 'GET':
-        return render(request, 'myapi/search.html')
+        today = datetime.datetime.now().strftime('%Y-%m-%d')
+        return render(request, 'myapi/search.html', {
+            'today': today
+        })
     else:
         q = request.POST
         date = q.get('date')
+        print(date, 'd')
         zip_code = q.get('zip_code')
         if zip_code == '':
             city = q.get('city')
@@ -91,5 +96,5 @@ def search(request):
             location = geo.geocode(city)
             lat = location.latitude
             lon = location.longitude
-            return HttpResponseRedirect(f"/{lat}/{lon}/{date}")
-        return HttpResponseRedirect(f"us/{zip_code}/{date}")
+            return HttpResponseRedirect(reverse('lat_lon_date_view', args=(lat, lon, date)))
+        return HttpResponseRedirect(reverse('zip_date_view', args=(zip_code, date)))
