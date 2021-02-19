@@ -19,3 +19,29 @@ B
 zmanim/settings.py,9\f\9f6be58a12998ce221a8eadbf6ec0d39e5d7a367
 =
 myapi/urls.py,6\1\610fcd51c843dd081762cc0817ca635e78da6a30
+S
+#myapi/static/myapi/prepros-6.config,9\b\9bb4c12d116a7f2a155117835dec4f08b925b7f9
+F
+myapi/SunriseSunset.py,8\7\8768bf2c849953a05b767602e2aee17bfd6ef1fe
+A
+myapi/__init__.py,b\6\b6f4d41011c73a7035a165790263e376f70b531a
+=
+myapi/apps.py,8\2\8208c75d0d4cc44364e0f4c1b395b605095474c2
+C
+myapi/LocationIQ.py,1\9\19c1e52efa3f9f51f2b0873ac0131a86d90fb2f0
+P
+ myapi/static/myapi/response.scss,c\3\c3e184ef011fe6b96b0dc7f5628881ae3e6ddf89
+O
+myapi/templates/myapi/test.html,4\7\47c959d69099b0d4aa8052b71facee27f33f8fcd
+O
+myapi/static/myapi/response.css,2\0\20bd8d0be975bf85d78a376099ad3b643c4f09fb
+B
+myapi/latlonzip.py,0\9\0934b299b3fc8de42d7ee7a7284ebe43259decaa
+D
+myapi/ZmanimCalcs.py,a\e\aeb4e9e1125df657ac2909bd5be40ae826489c70
+>
+myapi/forms.py,a\3\a3b604aabbfc9d8f26d193f0ee1931be13e35f8c
+O
+myapi/static/myapi/css/main.css,6\9\69abb68f15999b47e1ab0bba3698f4545d237b82
+Q
+!myapi/templates/myapi/search.html,4\d\4dbf85d50e2452f142743156b8093e9b07428fba

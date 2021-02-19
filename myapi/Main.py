@@ -1,4 +1,3 @@
-from .LocationIQ import get_lat_lon
 from .SunriseSunset import get_sunrise_sunset
 from .HourMath import get_hours
 from .ZmanimCalcs import calcs

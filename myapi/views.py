@@ -1,21 +1,19 @@
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseRedirect
 from .Main import no_lat_lon_json
 from django.shortcuts import render
 from .latlonzip import get_lat_lon_zip
+from geopy.geocoders import Nominatim
+
 # Create your views here.
 
 
 def Zmanim_View(request, lat, lon):
     zmanim_dict = no_lat_lon_json(lat, lon)
-    # zmanim_json = json.loads(str(zmanim_dict))
-    # json_response = json.dumps(zmanim_dict, indent=2)
-    # response = json.loads(json_response)
-
     return JsonResponse(zmanim_dict, json_dumps_params={'indent': 2})
 
 
 def homepage(request):
-    return render(request, 'myapi/index.html')
+    return render(request, 'myapi/search.html')
 
 
 def date_zmanim(request, date, lat, lon):
@@ -77,8 +75,21 @@ def date_zmanim_with_code_fancy(request, code, date):
 
 def Zmanim_View_fancy(request, lat, lon):
     zmanim_dict = no_lat_lon_json(lat, lon)
-    # zmanim_json = json.loads(str(zmanim_dict))
-    # json_response = json.dumps(zmanim_dict, indent=2)
-    # response = json.loads(json_response)
-
     return display_times(request, zmanim_dict)
+
+
+def search(request):
+    if request.method == 'GET':
+        return render(request, 'myapi/search.html')
+    else:
+        q = request.POST
+        date = q.get('date')
+        zip_code = q.get('zip_code')
+        if zip_code == '':
+            city = q.get('city')
+            geo = Nominatim(user_agent='ZmanimAPI')
+            location = geo.geocode(city)
+            lat = location.latitude
+            lon = location.longitude
+            return HttpResponseRedirect(f"/{lat}/{lon}/{date}")
+        return HttpResponseRedirect(f"us/{zip_code}/{date}")
