@@ -31,13 +31,9 @@ If you want to search in the web browser, use URL/search.
 There is an option for search by city name or by zip code (us only). There is also a date option. 
 
 #### ToDo
-1. Add line by line comments for the project
-2. Add API view and regular view for cities outside of the search function. 
-3. Nicer errors, less errors
+1. Add API view and regular view for cities outside of the search function. 
+1. Nicer errors, less errors
 
 #### Contact
 To contact the author: 2022.j.wainberg@shalhevet.org
-
-
-
 
