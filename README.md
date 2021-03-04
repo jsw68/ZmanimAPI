@@ -1,5 +1,5 @@
 # ZmanimAPI
-An API to get Zmanim for any Longitude and Latitude
+An API to get Zmanim for anywhere around the world. 
 
 ## Documentation and usage
 
