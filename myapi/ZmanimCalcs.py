@@ -1,32 +1,26 @@
 import datetime
 
 
-def calcs(hour, sunrise, sunset):
+def calcs(proportional_hour, halachik_day_begins, halachik_day_ends):
+    """Function to callculate the Zmanim for Magen Avraham and Vilna Gaon when given the length of a
+    proportional hour and the time that the halachik day starts and ends"""
     output = {}
-    # even though it is called hour, it is actually a proportional hour
-    # even thought hey are called sunrise and sunset, they are passed nightfall adn daybreak for magen avraham
-    three_hours = hour * 3
-    two_hours = hour * 2
-    # shema is three hours after sunrise
-    sof_zman_kriyat_shema = sunrise + three_hours
+    # shema is three proportional_hours after halachik_day_begins
+    sof_zman_kriyat_shema = halachik_day_begins + proportional_hour * 3
     output["sof_zman_kriyat_shema"] = sof_zman_kriyat_shema
-    sof_zman_tefilah = sof_zman_kriyat_shema + hour
-    # 4 hours after sunrise
+    # 4 proportional_hours after halachik_day_begins
+    sof_zman_tefilah = sof_zman_kriyat_shema + proportional_hour
     output["sof_zman_tefilah"] = sof_zman_tefilah
-    # six hours after sunrise
-    hazot = sof_zman_tefilah + two_hours
+    # six proportional_hours after halachik_day_begins
+    hazot = sof_zman_tefilah + proportional_hour * 2
     output["hazot"] = hazot
-    half_hour = hour/2
-    # half hour after midday
-    minha_gedola = hazot + half_hour
+    # half proportional_hour after midday
+    minha_gedola = hazot + proportional_hour/2
     output["minha_gedola"] = minha_gedola
-    # 2 and a half hours after midday
-    minha_ketana = hazot + two_hours + half_hour
+    # 2 and a half proportional_hours after midday
+    minha_ketana = hazot + proportional_hour * 2 + proportional_hour/2
     output["minha_ketana"] = minha_ketana
-    quarter_hour = hour/4
-    # 1 and a quarter hour before sunset
-    plag_haminha = sunset - hour - quarter_hour
+    # 1 and a quarter proportional_hour before halachik_day_ends
+    plag_haminha = halachik_day_ends - proportional_hour - proportional_hour/4
     output["plag_haminha"] = plag_haminha
-    # time_string = plag_haminha.strftime("%a %d %B %Y %H %p %M %S %F %Z")
-    # print(time_string, hour, sunset, quarter_hour)
     return output

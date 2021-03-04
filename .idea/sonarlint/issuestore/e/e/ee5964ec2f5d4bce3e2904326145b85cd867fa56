@@ -1,5 +1,4 @@
 
-upython:S1542
-"QRename function "Zmanim_View" to match the regular expression ^[a-z_][a-z0-9_]*$.(‰Ú‚¤şÿÿÿÿ8ïÕú–û.
-Lpython:S5780,"(Change or remove duplicates of this key.(êãšÂùÿÿÿÿ8ïÕú–û.
-vpython:S1542L"WRename function "Zmanim_View_fancy" to match the regular expression ^[a-z_][a-z0-9_]*$.(£öµÎ8ïÕú–û.
+upython:S1542"QRename function "Zmanim_View" to match the regular expression ^[a-z_][a-z0-9_]*$.(‰Ú‚¤şÿÿÿÿ8ïÕú–û.
+Lpython:S5780-"(Change or remove duplicates of this key.(êãšÂùÿÿÿÿ8ïÕú–û.
+vpython:S1542M"WRename function "Zmanim_View_fancy" to match the regular expression ^[a-z_][a-z0-9_]*$.(£öµÎ8ïÕú–û.
