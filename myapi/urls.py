@@ -2,7 +2,6 @@ from django.urls import path, register_converter
 from . import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-
 class FloatConverter:
     regex = r"[-]?\d+\.\d+"
 
@@ -33,9 +32,20 @@ class ZipConverter:
         return value
 
 
+class CityConverter:
+    regex = r"[a-zA-Z\s]*"
+
+    def to_python(self, value):
+        return str(value)
+
+    def to_url(self, value):
+        return value
+
+
 register_converter(ZipConverter, 'zip')
 register_converter(FloatConverter, 'float')
 register_converter(DateConverter, 'date')
+register_converter(CityConverter, 'city')
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
@@ -44,10 +54,14 @@ urlpatterns = [
     path('api/<float:lat>/<float:lon>/<date:date>/', views.date_zmanim, name="lat_lon_date"),
     path('api/us/<zip:code>/', views.zmanim_with_code, name="zip"),
     path('api/us/<zip:code>/<date:date>/', views.date_zmanim_with_code, name="zip_date"),
+    path('api/city/<city:city_name>/', views.zmanim_from_city, name='city'),
+    path('api/city/<city:city_name>/<date:date>', views.zmanim_from_city_date, name='city_date'),
     path('<float:lat>/<float:lon>/', views.Zmanim_View_fancy, name='lat_lon_view'),
     path('<float:lat>/<float:lon>/<date:date>/', views.date_zmanim_fancy, name="lat_lon_date_view"),
     path('us/<zip:code>/', views.zmanim_with_code_fancy, name="zip_view"),
     path('us/<zip:code>/<date:date>/', views.date_zmanim_with_code_fancy, name="zip_date_view"),
+    path('city/<city:city_name>/', views.zmanim_from_city_fancy, name='city_view'),
+    path('city/<city:city_name>/<date:date>', views.zmanim_from_city_date_fancy, name='city_date_view'),
     path('search/', views.search, name="search")
     # path('<int:year>/<int:month>/<int:day>', include(router.urls)),
     # path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))

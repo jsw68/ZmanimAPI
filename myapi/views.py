@@ -34,6 +34,22 @@ def date_zmanim_with_code(request, code, date):
     return JsonResponse(zmanim_dict, json_dumps_params={'indent': 2})
 
 
+def zmanim_from_city(request, city_name):
+    geo = Nominatim(user_agent='ZmanimAPI')
+    location = geo.geocode(city_name)
+    lat = location.latitude
+    lon = location.longitude
+    return HttpResponseRedirect(reverse('lat_lon', args=(lat, lon)))
+
+
+def zmanim_from_city_date(request, city_name, date):
+    geo = Nominatim(user_agent='ZmanimAPI')
+    location = geo.geocode(city_name)
+    lat = location.latitude
+    lon = location.longitude
+    return HttpResponseRedirect(reverse('lat_lon_date', args=(lat, lon, date)))
+
+
 def display_times(request, zmanim_dict):
     magen_dict = zmanim_dict['magen']
     vilna_dict = zmanim_dict['vilna']
@@ -79,6 +95,22 @@ def Zmanim_View_fancy(request, lat, lon):
     return display_times(request, zmanim_dict)
 
 
+def zmanim_from_city_fancy(request, city_name):
+    geo = Nominatim(user_agent='ZmanimAPI')
+    location = geo.geocode(city_name)
+    lat = location.latitude
+    lon = location.longitude
+    return HttpResponseRedirect(reverse('lat_lon_view', args=(lat, lon)))
+
+
+def zmanim_from_city_date_fancy(request, city_name, date):
+    geo = Nominatim(user_agent='ZmanimAPI')
+    location = geo.geocode(city_name)
+    lat = location.latitude
+    lon = location.longitude
+    return HttpResponseRedirect(reverse('lat_lon_date_view', args=(lat, lon, date)))
+
+
 def search(request):
     if request.method == 'GET':
         today = datetime.datetime.now().strftime('%Y-%m-%d')
@@ -88,7 +120,6 @@ def search(request):
     else:
         q = request.POST
         date = q.get('date')
-        print(date, 'd')
         zip_code = q.get('zip_code')
         if zip_code == '':
             city = q.get('city')
@@ -98,3 +129,4 @@ def search(request):
             lon = location.longitude
             return HttpResponseRedirect(reverse('lat_lon_date_view', args=(lat, lon, date)))
         return HttpResponseRedirect(reverse('zip_date_view', args=(zip_code, date)))
+
