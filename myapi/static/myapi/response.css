@@ -14,9 +14,9 @@
  html, body {
 	 margin: 0;
 	 padding: 0;
+	 background-color: black;
 }
  body {
-	 background-color: #fafafa;
 	 color: #1d1f20;
 	 font-family: 'Raleway', sans-serif;
 }
