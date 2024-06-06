@@ -1,8 +1,11 @@
 # ZmanimAPI
 An API to get Zmanim for anywhere around the world. 
 
+Technologies used: Python, Django, JavaScript, HTML
+
 ## Documentation and usage
 
+To search via a GUI, see the search feature at http://jsw68.pythonanywhere.com/search/. 
 All API requests start at the base url: http://jsw68.pythonanywhere.com/. For shortening purposes, this will be referred to as URL. 
 
 #### API Documentation
@@ -29,12 +32,4 @@ Here they are in the website format:
 2. URL/lat/lon/date - Same as number 1, except there is an optional date string at the end. This date should be in the form YYYY-MM-DD. 
 3. URL/us/zip_code - This gives the Zmanim for the area with the zip code of zip_code. 
 4. URL/us/zip_code/date - Same as number 3 except with an optional date string at the end in the form YYY-MM-DD.
-
-
-#### ToDo
-1. Add API view and regular view for cities outside of the search function. 
-1. Nicer errors, less errors
-
-#### Contact
-To contact the author: 2022.j.wainberg@shalhevet.org
 
